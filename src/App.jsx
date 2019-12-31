@@ -1,19 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import 'jquery';
+import 'popper.js';
+import 'bootstrap';
+
+import Summary from './pages/Summary';
+import Data from './pages/Data';
+import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
+
+import './App.scss';
 
 const App = () => (
   <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-    </div>
+    <>
+      <Navbar />
+      <div className="container-fluid">
+        <div className="row">
+          <Sidebar />
+          <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <Route exact path="/" component={Summary} />
+            <Route path="/data" component={Data} />
+          </main>
+        </div>
+      </div>
+    </>
   </Router>
 );
 
