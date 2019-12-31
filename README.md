@@ -9,3 +9,5 @@ This dashboard-like app is built as a proof of concept for the following technol
 
 - ESLint
   - Lint and fix the entire project: `yarn lint:fix`
+- StyleLint
+  - Lint and fix the entire project: `yarn stylelint:fix`
