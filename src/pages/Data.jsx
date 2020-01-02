@@ -1,10 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import FilterBarContainer from '../containers/FilterBarContainer';
+import SelectedLetterContainer from '../containers/SelectedLetterContainer';
 
 const Data = () => (
   <>
-    <h2>Data</h2>
-    <p>Ea malis legam o laboris iis ab fugiat iis culpa.</p>
-    <p>Arbitror anim legam sed summis, in ne tempor mentitum.</p>
+    <FilterBarContainer />
+    <h1>Data</h1>
+    <SelectedLetterContainer />
+    <Link to="/">Go Back Home</Link>
+    <div className="row">
+      <div className="col-md-6">
+        <span>Chart</span>
+      </div>
+      <div className="col-md-6">
+        <span>Chart</span>
+      </div>
+    </div>
   </>
 );
 
