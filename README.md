@@ -5,6 +5,7 @@ This dashboard-like app is built as a proof of concept for the following technol
 - [x] React Router V5: [`react-router`](https://github.com/ReactTraining/react-router)
 - [x] [stylelint](https://stylelint.io/) [standard](https://github.com/stylelint/stylelint-config-standard) configuration
 - [x] Style with [Bootstrap](https://getbootstrap.com/).
+- [x] [Redux](https://redux.js.org/): Keep common filter values across pages.
 
 ## Tools
 
