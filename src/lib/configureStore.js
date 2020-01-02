@@ -6,7 +6,7 @@ import logger from 'redux-logger';
 
 import createRootReducer from '../reducers';
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({ basename: '/dashboard' });
 
 const composeEnhancers = composeWithDevTools;
 
