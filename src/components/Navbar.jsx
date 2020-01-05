@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import ConnectedNavLink from './ConnectedNavLink';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -17,10 +17,10 @@ const Navbar = () => (
     <div className="collapse navbar-collapse" id="navbarCollapse">
       <ul className="navbar-nav mr-auto d-md-none">
         <li className="nav-item">
-          <NavLink exact to="/" className="nav-link">Summary</NavLink>
+          <ConnectedNavLink exact to="/" className="nav-link">Summary</ConnectedNavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/data" className="nav-link">Data</NavLink>
+          <ConnectedNavLink to="/data" className="nav-link">Data</ConnectedNavLink>
         </li>
       </ul>
     </div>
