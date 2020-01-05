@@ -1,15 +1,21 @@
-import { connect } from 'react-redux';
-
-import { changeFilter } from '../actions';
+import { urlParams } from '../filter';
+import withQueryParams from '../lib/useQueryParamHelper';
 import FilterBar from '../components/FilterBar';
 
-const mapStateToProps = (state, ownProps) => ({ ...state.settings, ...ownProps });
+const mapParamsToProps = (query, setQuery) => {
+  const { letter, options, text, yes } = query;
+  return (
+    {
+      letter,
+      options,
+      text,
+      yes,
+      onChangeLetter: (value) => setQuery({ ...query, letter: value }),
+      onChangeOptions: (value) => setQuery({ ...query, options: value }),
+      onChangeText: (value) => setQuery({ ...query, text: value }),
+      onChangeYes: (value) => setQuery({ ...query, yes: value }),
+    }
+  );
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  onChangeLetter: (letter) => dispatch(changeFilter({ letter })),
-  onChangeOptions: (options) => dispatch(changeFilter({ options })),
-  onChangeText: (text) => dispatch(changeFilter({ text })),
-  onChangeYes: (yes) => dispatch(changeFilter({ yes })),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);
+export default withQueryParams(urlParams, mapParamsToProps)(FilterBar);

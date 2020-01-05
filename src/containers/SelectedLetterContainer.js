@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-
+import { urlParams } from '../filter';
+import withQueryParams from '../lib/useQueryParamHelper';
 import SelectedLetter from '../components/SelectedLetter';
 
-const mapStateToProps = (state) => ({ letter: state.settings.letter });
+const mapParamsToProps = ({ letter }) => ({ letter });
 
-export default connect(mapStateToProps)(SelectedLetter);
+export default withQueryParams(urlParams, mapParamsToProps)(SelectedLetter);

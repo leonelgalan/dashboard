@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { StringParam, ArrayParam, BooleanParam } from 'use-query-params';
 
 export const FILTERS = ['letter', 'options', 'yes', 'query'];
 
@@ -16,4 +17,11 @@ export const filterProps = {
   options: PropTypes.arrayOf(PropTypes.string),
   text: PropTypes.string,
   yes: PropTypes.bool,
+};
+
+export const urlParams = {
+  text: StringParam,
+  options: ArrayParam,
+  letter: StringParam,
+  yes: BooleanParam,
 };

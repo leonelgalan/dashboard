@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { QueryParamProvider } from 'use-query-params';
 import configureStore, { history } from './lib/configureStore';
 
 import 'jquery';
@@ -20,18 +21,20 @@ const store = configureStore();
 const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <>
-        <Navbar />
-        <div className="container-fluid">
-          <div className="row">
-            <Sidebar />
-            <main role="main" className="col-md-9 ml-sm-auto col-lg-10">
-              <Route exact path="/" component={Summary} />
-              <Route path="/data" component={Data} />
-            </main>
+      <QueryParamProvider history={history}>
+        <>
+          <Navbar />
+          <div className="container-fluid">
+            <div className="row">
+              <Sidebar />
+              <main role="main" className="col-md-9 ml-sm-auto col-lg-10">
+                <Route exact path="/" component={Summary} />
+                <Route path="/data" component={Data} />
+              </main>
+            </div>
           </div>
-        </div>
-      </>
+        </>
+      </QueryParamProvider>
     </ConnectedRouter>
   </Provider>
 );
